@@ -60,3 +60,39 @@ function deleteRecet(id) {
   recets = recets.filter((recet) => recet.id !== id);
   renderRecet();
 }
+
+//funcion para buscar recetas
+function searchRecet() {
+  const searchInput = document
+    .getElementById("searchInput")
+    .value.toLowerCase();
+  const searchResults = recets.filter((recet) =>
+    recet.title.toLowerCase().includes(searchInput)
+  );
+  const searchResultsList = document.getElementById("SearchRecetsList");
+  searchResultsList.innerHTML = "";
+
+  searchResults.forEach((recet) => {
+    const searchResultItem = document.createElement("li");
+    searchResultItem.className = "list-group-item"; // Agrega la clase "list-group-item" aquí
+    searchResultItem.innerHTML = `
+      <h3>${recet.title}</h3>
+      <p><strong>Ingredientes:</strong> ${recet.ingredient}</p>
+      <p><strong>Pasos:</strong> ${recet.steps}</p>
+      <p><strong>Categoria:</strong> ${recet.category}</p>
+      <img src="${recet.image}" alt="${recet.title}" />    
+    `;
+    searchResultsList.appendChild(searchResultItem);
+  });
+
+  if (searchResults.length === 0) {
+    const noResultsItem = document.createElement("li");
+    noResultsItem.className = "list-group-item";
+    noResultsItem.textContent = "No se encontraron recetas";
+    searchResultsList.appendChild(noResultsItem);
+  }
+}
+
+//si el buscador esta vacio no se muestran las recetas a menos que se escriba algo en el buscador
+
+document.getElementById("searchInput").addEventListener("input", searchRecet);
