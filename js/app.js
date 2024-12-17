@@ -30,14 +30,14 @@ function renderRecet() {
   recets.forEach((recet) => {
     const recetItem = document.createElement("li");
     recetItem.className =
-      "list-group-item justify-content-between align-items-center";
+      "list-group-item justify-content-between align-items-center mb-2";
     recetItem.innerHTML = `
       <h3>${recet.title}</h3>
       <p><strong>Ingredientes:</strong> ${recet.ingredient}</p>
       <p><strong>Pasos:</strong> ${recet.steps}</p>
       <p><strong>Categoria:</strong> ${recet.category}</p>
-      <img src="${recet.image}" alt="${recet.title}" />
-      <button class="btn btn-danger" onclick="deleteRecet(${recet.id})">Eliminar</button>
+      <img class="img-fluid mb-3" src="${recet.image}" alt="${recet.title}" />
+      <button class="btn btn-danger btn-sm" onclick="deleteRecet(${recet.id})">Eliminar</button>
 `;
     recetList.appendChild(recetItem);
   });
@@ -76,11 +76,13 @@ function searchRecet() {
     const searchResultItem = document.createElement("li");
     searchResultItem.className = "list-group-item"; // Agrega la clase "list-group-item" aquí
     searchResultItem.innerHTML = `
+    <div class="list-group-item justify-content-between align-items-center mb-2">
       <h3>${recet.title}</h3>
       <p><strong>Ingredientes:</strong> ${recet.ingredient}</p>
       <p><strong>Pasos:</strong> ${recet.steps}</p>
       <p><strong>Categoria:</strong> ${recet.category}</p>
-      <img src="${recet.image}" alt="${recet.title}" />    
+      <img class="img-fluid mb-3" src="${recet.image}" alt="${recet.title}" /> 
+    </div>   
     `;
     searchResultsList.appendChild(searchResultItem);
   });
