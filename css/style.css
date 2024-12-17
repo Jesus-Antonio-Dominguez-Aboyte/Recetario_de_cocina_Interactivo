@@ -1,0 +1,13 @@
+body {
+  background-image: url(https://traveler.marriott.com/es/wp-content/uploads/sites/2/2024/07/6386806-Postales_de_Barranquilla_Horizontales-0976-scaled-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+
+  z-index: -1;
+}
+
+.principal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
